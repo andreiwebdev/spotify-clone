@@ -11,8 +11,11 @@ export const deezerApi = createApi({
     return headers;
   },
   endpoints: (builder) => ({
-    getTopCharts: builder.query({ query: () => "/playlist/7442292304" }),
+    getTopCharts: builder.query({ query: () => "/chart/" }),
+    getSongDetails: builder.query({
+      query: ({ songid }) => `/track/${songid}`,
+    }),
   }),
 });
 
-export const { useGetTopChartsQuery } = deezerApi;
+export const { useGetTopChartsQuery, useGetSongDetailsQuery } = deezerApi;
