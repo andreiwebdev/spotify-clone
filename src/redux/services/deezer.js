@@ -16,6 +16,9 @@ export const deezerApi = createApi({
       query: ({ songid }) => `/track/${songid}`,
     }),
     getArtistDetails: builder.query({ query: ({ id }) => `/artist/${id}` }),
+    getSongsBySearch: builder.query({
+      query: ({ searchTerm }) => `/search?q=${searchTerm}`,
+    }),
   }),
 });
 
@@ -23,4 +26,5 @@ export const {
   useGetTopChartsQuery,
   useGetSongDetailsQuery,
   useGetArtistDetailsQuery,
+  useGetSongsBySearchQuery,
 } = deezerApi;
