@@ -7,7 +7,11 @@ const DetailsHeader = ({ songData, artistData }) => {
 
       <div className="absolute inset-0 flex items-center">
         <img
-          src={songData ? songData?.artist.picture : artistData?.picture}
+          src={
+            songData
+              ? songData?.artist.picture_medium
+              : artistData?.picture_medium
+          }
           alt="art"
           className="sm:w-48 w-28 sm:h-48 h-28 rounded-full object-cover border-2 shadow-xl shadow-black"
         />

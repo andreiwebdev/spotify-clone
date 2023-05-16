@@ -3,7 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const deezerApi = createApi({
   reducerPath: "deezerApi", // name of the api
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://cors-anywhere.herokuapp.com/https://api.deezer.com",
+    baseUrl: "https://api.deezer.com",
+    // baseUrl: "https://cors-anywhere.herokuapp.com/https://api.deezer.com", // enable to work deezerapi on local
   }),
   prepareHeaders: (headers) => {
     headers.set("method", "GET");
