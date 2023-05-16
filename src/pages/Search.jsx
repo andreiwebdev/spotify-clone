@@ -12,7 +12,18 @@ const Search = () => {
 
   if (error) return <Error />;
 
-  console.log(data.data);
+  const songsMap = new Map();
+
+  const songs = data.data.filter((obj) => {
+    const key = obj.title + obj.artist.name;
+    const isDuplicate = songsMap.has(key);
+
+    if (!isDuplicate) {
+      songsMap.set(key, true);
+    }
+
+    return !isDuplicate;
+  });
 
   return (
     <div className="flex flex-col">
@@ -21,7 +32,7 @@ const Search = () => {
       </h2>
 
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data.data?.map((song, i) => (
+        {songs?.map((song, i) => (
           <SongCard
             key={song.id}
             song={song}
