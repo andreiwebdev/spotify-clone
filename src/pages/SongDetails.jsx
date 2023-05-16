@@ -1,14 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
+import { DetailsHeader, Error, Loader } from "../components";
 
-import { setActiveSong, playPause } from "../redux/features/playerSlice";
 import { useGetSongDetailsQuery } from "../redux/services/deezer";
 
 const SongDetails = () => {
   const dispatch = useDispatch();
   const { songid } = useParams();
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
   const {
     data: songData,
     isFetching: isFetchingSongDetails,

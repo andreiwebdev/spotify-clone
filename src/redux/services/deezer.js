@@ -15,7 +15,12 @@ export const deezerApi = createApi({
     getSongDetails: builder.query({
       query: ({ songid }) => `/track/${songid}`,
     }),
+    getArtistDetails: builder.query({ query: ({ id }) => `/artist/${id}` }),
   }),
 });
 
-export const { useGetTopChartsQuery, useGetSongDetailsQuery } = deezerApi;
+export const {
+  useGetTopChartsQuery,
+  useGetSongDetailsQuery,
+  useGetArtistDetailsQuery,
+} = deezerApi;
