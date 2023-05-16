@@ -11,7 +11,7 @@ import { useGetTopChartsQuery } from "../redux/services/deezer";
 import "swiper/css";
 import "swiper/css/free-mode";
 
-const TopChartCard = ({
+export const TopChartCard = ({
   song,
   i,
   isPlaying,
@@ -59,6 +59,7 @@ const TopPlay = () => {
   });
 
   const topPlays = data?.tracks?.data.slice(0, 5);
+  const topArtists = data?.artists?.data.slice(0, 5);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -72,7 +73,7 @@ const TopPlay = () => {
   return (
     <div
       ref={divRef}
-      className="x:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col"
+      className="x:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col"
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
@@ -114,15 +115,15 @@ const TopPlay = () => {
           modules={[FreeMode]}
           className="mt-4"
         >
-          {topPlays?.map((song, i) => (
+          {topArtists?.map((artist, i) => (
             <SwiperSlide
-              key={song?.id}
+              key={artist?.id}
               style={{ width: "25%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
-              <Link to={`/artists/${song?.artist.id}`}>
+              <Link to={`/artists/${artist?.id}`}>
                 <img
-                  src={song?.album.cover_medium}
+                  src={artist?.picture_medium}
                   alt="artist image"
                   className="rounded-full w-full object-cover"
                 />
