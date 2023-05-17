@@ -1,9 +1,14 @@
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { DetailsHeader, Error, Loader } from "../components";
+import { DetailsHeader, Error, Loader, SongCard } from "../components";
 
-import { useGetArtistDetailsQuery } from "../redux/services/deezer";
+import {
+  useGetArtistDetailsQuery,
+  useGetSongsBySearchQuery,
+} from "../redux/services/deezer";
 
 const ArtistDetails = () => {
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { id } = useParams();
   const {
     data: artistData,
@@ -11,15 +16,37 @@ const ArtistDetails = () => {
     error,
   } = useGetArtistDetailsQuery({ id });
 
-  console.log(artistData);
+  const {
+    data: artistSongsData,
+    isFetching: isFetchingSongs,
+    error: songsError,
+  } = useGetSongsBySearchQuery({
+    searchTerm: artistData?.name || "",
+  });
 
-  if (isFetchingArtistDetails) return <Loader title="Searching song details" />;
+  const songs = artistSongsData?.data?.slice(0, 10);
 
-  if (error) return <Error />;
+  if (isFetchingArtistDetails || isFetchingSongs)
+    return <Loader title="Searching song details" />;
+
+  if (error || songsError) return <Error />;
 
   return (
     <div className="flex flex-col mt-10">
       <DetailsHeader artistData={artistData} />
+
+      <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+        {songs?.map((song, i) => (
+          <SongCard
+            key={song.id}
+            song={song}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            data={artistSongsData}
+            i={i}
+          />
+        ))}
+      </div>
     </div>
   );
 };
