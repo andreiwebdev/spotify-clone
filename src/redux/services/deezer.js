@@ -9,6 +9,8 @@ export const deezerApi = createApi({
   prepareHeaders: (headers) => {
     headers.set("method", "GET");
 
+    console.log(headers);
+
     return headers;
   },
   endpoints: (builder) => ({
