@@ -63,7 +63,7 @@ app.get("/artist/:artistid", (req, res) => {
     });
 });
 
-const PORT = process.env.VITE_PORT || 8080;
+const PORT = process.env.VITE_PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`);
