@@ -3,7 +3,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const deezerApi = createApi({
   reducerPath: "deezerApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL || "http://localhost:4000",
+    baseUrl:
+      import.meta.env.VITE_BASE_URL ||
+      "https://spotify-clone-api-five.vercel.app/",
   }),
   prepareHeaders: (headers) => {
     headers.set("method", "GET");
