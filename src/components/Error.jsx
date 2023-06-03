@@ -2,7 +2,8 @@ import React from "react";
 
 const Error = () => {
   return (
-    <div className="absolute top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.5)] flex flex-row items-center justify-center p-5 z-10">
+    <>
+      {/* <div className="absolute top-0 left-0 w-full h-screen bg-[rgba(0,0,0,0.5)] flex flex-row items-center justify-center p-5 z-10">
       <div className="bg-white w-full md:w-2/3 lg:w-1/3 rounded-xl p-4 text-center">
         <h1 className="text-2xl uppercase mb-10">Alert</h1>
         <p>
@@ -25,7 +26,8 @@ const Error = () => {
           Stack Overflow
         </a>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 
