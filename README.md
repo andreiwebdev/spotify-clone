@@ -15,10 +15,10 @@ cd spotify-clone
 
 ### 🌐 Setting Up the Backend
 
-1. **Navigate to the Server Folder**  
-   Open a terminal and navigate to the server folder:
+1. **Navigate to the backend Folder**  
+   Open a terminal and navigate to the `backend` folder:
    ```bash
-   cd server
+   cd backend
    ```
 
 2. **Environment Variables**  
@@ -34,8 +34,8 @@ cd spotify-clone
    npm install
    ```
 
-4. **Start the Server**  
-   Fire up the server with:
+4. **Start the Backend**  
+   Fire up the backend with:
    ```bash
    npm run start
    ```
@@ -44,7 +44,7 @@ cd spotify-clone
 ### 🎨 Setting Up the Frontend
 
 1. **Navigate to the Root Folder**  
-   Open a new terminal and go back to the root `spotify-clone` folder:
+   Open a terminal and navigate to the `frontend` folder:
    ```bash
    cd ..
    ```
