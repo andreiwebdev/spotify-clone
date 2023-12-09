@@ -9,7 +9,7 @@ Before you begin, make sure you have [Node.js](https://nodejs.org/) installed on
 First things first, clone the repository to your local machine:
 
 ```bash
-git clone <https://github.com/andreiwebdev/spotify-clone.git>
+git clone https://github.com/andreiwebdev/spotify-clone.git
 cd spotify-clone
 ```
 
