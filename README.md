@@ -46,7 +46,7 @@ cd spotify-clone
 1. **Navigate to the Root Folder**  
    Open a terminal and navigate to the `frontend` folder:
    ```bash
-   cd ..
+   cd frontend
    ```
 
 2. **Environment Variables**  
