@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/discover", (req, res) => {
-  axios.get("https://api.deezer.com/playlist/9316866282").then((response) => {
+  axios.get("https://api.deezer.com/playlist/2917719082").then((response) => {
     res.send(response.data);
   });
 });
